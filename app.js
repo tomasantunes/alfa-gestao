@@ -38,6 +38,7 @@ function connectDB() {
 }
 
 app.get("/api/faturas/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM ft;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -49,6 +50,7 @@ app.get("/api/faturas/list", (req, res) => {
 });
 
 app.get("/api/clientes/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM cl;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -60,6 +62,7 @@ app.get("/api/clientes/list", (req, res) => {
 });
 
 app.get("/api/stocks/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM st;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -71,6 +74,7 @@ app.get("/api/stocks/list", (req, res) => {
 });
 
 app.get("/api/fornecedores/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM fl;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -82,6 +86,7 @@ app.get("/api/fornecedores/list", (req, res) => {
 });
 
 app.get("/api/users/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM us;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -93,6 +98,7 @@ app.get("/api/users/list", (req, res) => {
 });
 
 app.get("/api/dossiers/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM bo;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -104,6 +110,7 @@ app.get("/api/dossiers/list", (req, res) => {
 });
 
 app.get("/api/tipos-dossier/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM ts;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -115,6 +122,7 @@ app.get("/api/tipos-dossier/list", (req, res) => {
 });
 
 app.get("/api/estabelecimentos/list", (req, res) => {
+  var con = connectDB();
   var sql = "SELECT * FROM e1;";
   con.query(sql, function(err, result) {
       if (err) {
@@ -150,6 +158,8 @@ app.post("/api/users/register", (req, res) => {
 
   var password_salt = await bcrypt.genSalt(10);
   var password_hash = await bcrypt.hash(password, password_salt);
+
+  var con = connectDB();
 
   var sql = "SELECT * FROM us WHERE username = ?;";
   con.query(sql, [username], function(err, result) {
@@ -188,6 +198,8 @@ app.post("/api/users/login", (req, res) => {
       res.json({status: "NOK", error: "Parâmetro não está definido."});
     }
   };
+
+  var con = connectDB();
 
   var sql = "SELECT * FROM us WHERE username = ? OR email = ?;";
   con.query(sql, [username, username], function(err, result) {
