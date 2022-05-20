@@ -136,7 +136,7 @@ app.post("/api/users/register", (req, res) => {
   var departamento = "Administração";
   var ativo = 1;
 
-  var params = [nome, username, password, passwordConfirm, email, is_admin, grupo, departamentoa, ativo];
+  var params = [nome, username, password, passwordConfirm, email, is_admin, grupo, departamento, ativo];
 
   for (var i in params) {
     if (params[i] == undefined || params[i] == "") {
