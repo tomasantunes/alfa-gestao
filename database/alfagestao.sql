@@ -137,3 +137,29 @@ CREATE TABLE ts (
     bdempresas VARCHAR(128),
     preco_desc VARCHAR(128)
 );
+
+CREATE TABLE e1 (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(512),
+    nome_abr VARCHAR(128),
+    morada VARCHAR(512),
+    localidade VARCHAR(128),
+    cod_postal VARCHAR(128),
+    ncont VARCHAR(128),
+    cae VARCHAR(128),
+    capsocial DECIMAL(10, 2),
+    freguesia VARCHAR(128),
+    concelho VARCHAR(128),
+    distrito VARCHAR(128),
+    telefone VARCHAR(128),
+    telemovel VARCHAR(128),
+    fax VARCHAR(128),
+    ncontss VARCHAR(128),
+    contacto VARCHAR(128),
+    contacto_cargo VARCHAR(128),
+    bic VARCHAR(128),
+    iban VARCHAR(128),
+    idcredorsepa VARCHAR(128),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
