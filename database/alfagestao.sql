@@ -146,6 +146,7 @@ CREATE TABLE e1 (
     localidade VARCHAR(128),
     cod_postal VARCHAR(128),
     ncont VARCHAR(128),
+    nipc VARCHAR(128),
     cae VARCHAR(128),
     capsocial DECIMAL(10, 2),
     freguesia VARCHAR(128),
